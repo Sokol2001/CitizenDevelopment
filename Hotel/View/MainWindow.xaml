@@ -1,0 +1,27 @@
+﻿<Window x:Class="CitizenDevelopment.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CitizenDevelopment.View"
+        mc:Ignorable="d"
+        Title="AddData" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="id"/>
+                    <GridViewColumn Header="applicationName"/>
+                    <GridViewColumn Header="userName"/>
+                    <GridViewColumn Header="comment"/>
+                    
+                </GridView>
+            </ListView.View>
+            
+        </ListView>
+    </Grid>
+</Window>

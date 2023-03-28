@@ -1,0 +1,30 @@
+﻿<Window x:Class="CitizenDevelopment.View.AddData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CitizenDevelopment.View"
+        mc:Ignorable="d"
+        Title="AddData" Height="450" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="Application Name"/>
+            <TextBox Name="applicationName" Text="{Binding applicationName}"/>
+            <TextBlock Text="User Name"/>
+            <TextBox Name="userName" Text="{Binding userName}"/>
+            <TextBlock Text="Comment"/>
+            <TextBox Name="comment" Text="{Binding comment}"/>
+        </StackPanel>
+        <Button Margin="0,384,225,0" Width="225" Content="Add data" Command="{Binding AddData}"
+                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2"/>
+        <Button Margin="225,384,0,0" Width="225" Content="Cancel" Command="{Binding AddData}"
+                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2"/>
+    </Grid>
+</Window>
