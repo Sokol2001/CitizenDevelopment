@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CitizenDevelopment.ViewModel
 {
-    internal class DataManagerVM
+    internal class DataViewModel
     {
     }
 }

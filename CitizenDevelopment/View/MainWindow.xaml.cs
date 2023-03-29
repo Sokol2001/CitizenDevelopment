@@ -17,27 +17,11 @@ namespace CitizenDevelopment.View
         {
             InitializeComponent();
 
-            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\Hotel\\bin\\Debug\\database.db";
+            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\database.db";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM DataModel", connection);
-
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                myDataGrid.ItemsSource = dataTable.DefaultView;
-            }
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\Hotel\\bin\\Debug\\database.db";
-
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT Id, ApplicationName, UserName, Comment FROM DataModel", connection);
 
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
