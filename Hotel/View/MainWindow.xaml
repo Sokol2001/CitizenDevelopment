@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CitizenDevelopment.View"
         mc:Ignorable="d"
-        Title="AddData" Height="450" Width="800">
+        Title="AddData" Height="450" Width="450">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,14 +14,18 @@
         <ListView Grid.Row="0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="id"/>
-                    <GridViewColumn Header="applicationName"/>
-                    <GridViewColumn Header="userName"/>
-                    <GridViewColumn Header="comment"/>
+                    <GridViewColumn Width="25" Header="id"/>
+                    <GridViewColumn Width="125" Header="applicationName"/>
+                    <GridViewColumn Width="125" Header="userName"/>
+                    <GridViewColumn Width="175" Header="comment"/>
                     
                 </GridView>
             </ListView.View>
             
         </ListView>
+        <Button Margin="0,384,225,0" Width="225" Content="Add data" Command="{Binding AddData}"
+                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2" Click="Button_Click"/>
+        <Button Margin="225,384,0,0" Width="225" Content="Cancel" Command="{Binding AddData}"
+                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2"/>
     </Grid>
 </Window>

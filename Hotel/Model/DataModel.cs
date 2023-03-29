@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Model
+namespace CitizenDevelopment.Model
 {
     public class DataModel
     {
-        private readonly List<DataModel> _hotels;
+        public int Id { get; set; }
+        public string ApplicationName { get; set; }
+        public string UserName { get; set; }
+        public string Comment { get; set; }
+
+        /*private readonly List<DataModel> _hotels;
 
         public DataModel()
         {
@@ -18,6 +23,6 @@ namespace Hotel.Model
         public IEnumerable<DataModel> GetHotels()
         {
             return _hotels;
-        }
+        }*/
     }
 }
