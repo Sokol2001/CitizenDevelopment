@@ -5,27 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CitizenDevelopment.View"
         mc:Ignorable="d"
-        Title="AddData" Height="450" Width="450">
+        Title="DataModel" Height="450" Width="800"
+        Background="#282a36">
+    <Window.Resources>
+        <SolidColorBrush x:Key="ColorPrimary" Color="#44475a"/>
+        <SolidColorBrush x:Key="ColorSecondary" Color="#6272a4"/>
+        <SolidColorBrush x:Key="ColorTertiary" Color="#f8f8f2"/>
+        <SolidColorBrush x:Key="ColorAccent" Color="#bd93f9"/>
+        <SolidColorBrush x:Key="ColorWarning" Color="#ffb86c"/>
+        <SolidColorBrush x:Key="ColorError" Color="#ff5555"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="25" Header="id"/>
-                    <GridViewColumn Width="125" Header="applicationName"/>
-                    <GridViewColumn Width="125" Header="userName"/>
-                    <GridViewColumn Width="175" Header="comment"/>
-                    
-                </GridView>
-            </ListView.View>
-            
-        </ListView>
-        <Button Margin="0,384,225,0" Width="225" Content="Add data" Command="{Binding AddData}"
-                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2" Click="Button_Click"/>
-        <Button Margin="225,384,0,0" Width="225" Content="Cancel" Command="{Binding AddData}"
-                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2"/>
+
+        <DataGrid x:Name="myDataGrid" Grid.Row="0" AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Background="{StaticResource ColorTertiary}" 
+                  Foreground="{StaticResource ColorPrimary}" 
+                  RowBackground="{StaticResource ColorSecondary}" 
+                  AlternatingRowBackground="{StaticResource ColorPrimary}"
+                  BorderBrush="{StaticResource ColorSecondary}" BorderThickness="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Foreground="{StaticResource ColorTertiary}"  Width="*"/>
+                <DataGridTextColumn Header="Application Name" Binding="{Binding ApplicationName}" Foreground="{StaticResource ColorTertiary}"  Width="*"/>
+                <DataGridTextColumn Header="User Name" Binding="{Binding UserName}" Foreground="{StaticResource ColorTertiary}"  Width="*"/>
+                <DataGridTextColumn Header="Comment" Binding="{Binding Comment}" Foreground="{StaticResource ColorTertiary}"  Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel x:Name="buttonPanel" Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
+            <Button x:Name="btnGet" Content="Get" Width="75" Margin="5"
+                    Background="{StaticResource ColorSecondary}" 
+                    Foreground="{StaticResource ColorTertiary}"
+                    BorderBrush="{StaticResource ColorPrimary}" BorderThickness="2"/>
+            <Button x:Name="btnInsert" Content="Insert" Width="75" Margin="5"
+                    Background="{StaticResource ColorSecondary}" 
+                    Foreground="{StaticResource ColorTertiary}"
+                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2"/>
+            <Button x:Name="btnUpdate" Content="Update" Width="75" Margin="5"
+                    Background="{StaticResource ColorSecondary}" 
+                    Foreground="{StaticResource ColorTertiary}"
+                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2"/>
+            <Button x:Name="btnDelete" Content="Delete" Width="75" Margin="5"
+                    Background="{StaticResource ColorSecondary}" 
+                    Foreground="{StaticResource ColorTertiary}"
+                    BorderBrush="{StaticResource ColorError}" BorderThickness="2"/>
+        </StackPanel>
     </Grid>
 </Window>

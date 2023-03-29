@@ -24,7 +24,7 @@
         </StackPanel>
         <Button Margin="0,384,225,0" Width="225" Content="Add data" Command="{Binding AddData}"
                 CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2" Click="Button_Click"/>
-        <Button Margin="225,384,0,0" Width="225" Content="Cancel" Command="{Binding AddData}"
-                CommandParameter="{Binding ElementName=AddData}" Grid.RowSpan="2"/>
+        <Button Margin="225,384,0,0" Width="225" Content="Cancel" Command="{Binding Cancel}"
+                CommandParameter="{Binding ElementName=Cancel}" Grid.RowSpan="2"/>
     </Grid>
 </Window>

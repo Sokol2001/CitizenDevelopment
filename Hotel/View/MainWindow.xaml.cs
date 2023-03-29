@@ -1,5 +1,7 @@
 ﻿using CitizenDevelopment.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,28 +17,33 @@ namespace CitizenDevelopment.View
         {
             InitializeComponent();
 
-            
+            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\Hotel\\bin\\Debug\\database.db";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM DataModel", connection);
+
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                myDataGrid.ItemsSource = dataTable.DefaultView;
+            }
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (SQLiteConnection connection = new SQLiteConnection(App.databasePath))
+            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\Hotel\\bin\\Debug\\database.db";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                var DB = new SQLiteConnection("Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\Hotel\\bin\\Debug\\database.db; Pooling=true; FailIfMissing=false; Version=3");
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT Id, ApplicationName, UserName, Comment FROM DataModel", connection);
 
-                DB.Open();
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
 
-                using var command = new SQLiteCommand("SELECT * FROM DataModel", connection);
-
-                command.Connection.Open();
-
-                var result = command.ExecuteScalar();
-
-                connection.Close();
-
-                
+                myDataGrid.ItemsSource = dataTable.DefaultView;
             }
-
         }
     }
 }
