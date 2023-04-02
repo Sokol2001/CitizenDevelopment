@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace CitizenDevelopment.View
 {
-    /// <summary>
-    /// Interaction logic for DeleteData.xaml
-    /// </summary>
     public partial class DeleteData : Window
     {
         public DeleteData()
@@ -24,14 +21,11 @@ namespace CitizenDevelopment.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Cancel_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
         }
     }
 }

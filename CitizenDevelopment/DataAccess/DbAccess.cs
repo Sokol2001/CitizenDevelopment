@@ -24,7 +24,7 @@ namespace CitizenDevelopment.DataAccess
 
                 using (SQLiteCommand cmd = new SQLiteCommand(conn))
                 {
-                    cmd.CommandText = "INSERT INTO Data (ApplicationName, UserName, Comment) VALUES (@ApplicationName, @UserName, @Comment)";
+                    cmd.CommandText = "INSERT INTO DataModel (ApplicationName, UserName, Comment) VALUES (@ApplicationName, @UserName, @Comment)";
                     cmd.Parameters.AddWithValue("@ApplicationName", data.ApplicationName);
                     cmd.Parameters.AddWithValue("@UserName", data.UserName);
                     cmd.Parameters.AddWithValue("@Comment", data.Comment);
@@ -41,7 +41,7 @@ namespace CitizenDevelopment.DataAccess
 
                 using (SQLiteCommand cmd = new SQLiteCommand(conn))
                 {
-                    cmd.CommandText = "DELETE FROM Data WHERE Id=@Id";
+                    cmd.CommandText = "DELETE FROM DataModel WHERE Id=@Id";
                     cmd.Parameters.AddWithValue("@Id", id);
                     cmd.ExecuteNonQuery();
                 }
@@ -56,7 +56,7 @@ namespace CitizenDevelopment.DataAccess
 
                 using (SQLiteCommand cmd = new SQLiteCommand(conn))
                 {
-                    cmd.CommandText = "UPDATE Data SET ApplicationName=@ApplicationName, UserName=@UserName, Comment=@Comment WHERE Id=@Id";
+                    cmd.CommandText = "UPDATE DataModel SET ApplicationName=@ApplicationName, UserName=@UserName, Comment=@Comment WHERE Id=@Id";
                     cmd.Parameters.AddWithValue("@Id", data.Id);
                     cmd.Parameters.AddWithValue("@ApplicationName", data.ApplicationName);
                     cmd.Parameters.AddWithValue("@UserName", data.UserName);

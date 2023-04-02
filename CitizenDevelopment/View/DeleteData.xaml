@@ -26,21 +26,21 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Id" Foreground="#f8f8f2" Margin="0,0,0,26"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtId" Foreground="#f8f8f2" Background="#6272a4" Margin="0,0,0,26"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtId" Foreground="#f8f8f2" Background="#6272a4" Margin="0,0,0,26" VerticalContentAlignment="Center"/>
 
             <Label Grid.Row="1" Grid.Column="0" Content="Application Name" Foreground="#f8f8f2" Margin="0,0,0,26"/>
-            <TextBox IsReadOnly="True"  Grid.Row="1" Grid.Column="1" x:Name="txtAppName" Foreground="#f8f8f2" Background="#6272a4" Margin="0,0,0,26"/>
+            <TextBox IsReadOnly="True"  Grid.Row="1" Grid.Column="1" x:Name="txtAppName" Foreground="#f8f8f2" Background="#6272a4" Margin="0,0,0,26" VerticalContentAlignment="Center"/>
 
             <Label Grid.Row="2" Grid.Column="0" Content="User Name" Foreground="#f8f8f2"/>
-            <TextBox IsReadOnly="True"  Grid.Row="2" Grid.Column="1" x:Name="txtUserName" Foreground="#f8f8f2" Background="#6272a4"/>
+            <TextBox IsReadOnly="True"  Grid.Row="2" Grid.Column="1" x:Name="txtUserName" Foreground="#f8f8f2" Background="#6272a4" VerticalContentAlignment="Center"/>
 
             <Label Grid.Row="3" Grid.Column="0" Content="Comment" Foreground="#f8f8f2" Margin="0,25,0,26" Grid.RowSpan="3"/>
-            <TextBox IsReadOnly="True"  Grid.Row="3" Grid.Column="1" x:Name="txtComment" Foreground="#f8f8f2" Background="#6272a4" Margin="0,25,0,26" Grid.RowSpan="3"/>
+            <TextBox IsReadOnly="True"  Grid.Row="3" Grid.Column="1" x:Name="txtComment" Foreground="#f8f8f2" Background="#6272a4" Margin="0,25,0,26" Grid.RowSpan="3" VerticalContentAlignment="Center"/>
 
         </Grid>
 
         <Button Grid.Row="1" Margin="10" Width="100" Content="Find data" Command="{Binding FindCommand}" Foreground="#f8f8f2" Background="#bd93f9" />
         <Button Grid.Row="1" Margin="10" Width="100" Content="Save" Command="{Binding FindCommand}" Foreground="#f8f8f2" Background="#bd93f9" />
-        <Button Grid.Row="1" Margin="10" Width="100" Content="Cancel" Command="{Binding CancelCommand}" Foreground="#f8f8f2" Background="#ff5555" HorizontalAlignment="Right" />
+        <Button Grid.Row="1" Margin="10" Width="100" Content="Cancel" Command="{Binding CancelCommand}" Foreground="#f8f8f2" Background="#ff5555" HorizontalAlignment="Right" Click="Button_Cancel_Click" />
     </Grid>
 </Window>
