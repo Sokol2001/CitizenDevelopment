@@ -3,7 +3,6 @@ using CitizenDevelopment.Model;
 using System;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Input;
 
 namespace CitizenDevelopment.ViewModel
 {

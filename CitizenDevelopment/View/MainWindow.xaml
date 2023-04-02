@@ -49,11 +49,11 @@
             <Button x:Name="btnUpdate" Content="Update" Width="75" Margin="5"
                     Background="{StaticResource ColorSecondary}" 
                     Foreground="{StaticResource ColorTertiary}"
-                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2"/>
+                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2" Click="btnUpdate_Click"/>
             <Button x:Name="btnDelete" Content="Delete" Width="75" Margin="5"
                     Background="{StaticResource ColorSecondary}" 
                     Foreground="{StaticResource ColorTertiary}"
-                    BorderBrush="{StaticResource ColorError}" BorderThickness="2"/>
+                    BorderBrush="{StaticResource ColorError}" BorderThickness="2" Click="btnDelete_Click"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -16,7 +16,6 @@ namespace CitizenDevelopment.View
         {
             InitializeComponent();
             viewModel = new InsertDataViewModel();
-            DataContext = viewModel;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

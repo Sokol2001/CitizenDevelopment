@@ -27,5 +27,19 @@ namespace CitizenDevelopment.View
             insertData.Show();
             Close();
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateData updateData = new UpdateData();
+            updateData.Show();
+            Close();
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteData deleteData = new DeleteData();
+            deleteData.Show();
+            Close();
+        }
     }
 }

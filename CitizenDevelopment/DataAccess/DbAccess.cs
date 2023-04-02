@@ -93,5 +93,33 @@ namespace CitizenDevelopment.DataAccess
 
             return data;
         }
+
+        public DataModel GetDataById(int id)
+        {
+            DataModel data = null;
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter($"SELECT * FROM DataModel WHERE Id = {id}", connection);
+
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    DataRow row = dataTable.Rows[0];
+                    data = new DataModel()
+                    {
+                        Id = Convert.ToInt32(row["Id"]),
+                        ApplicationName = (string)row["ApplicationName"],
+                        UserName = (string)row["UserName"],
+                        Comment = (string)row["Comment"]
+                    };
+                }
+            }
+
+            return data;
+        }
+
     }
 }
