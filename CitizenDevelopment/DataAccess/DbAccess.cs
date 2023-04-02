@@ -1,15 +1,17 @@
 ﻿using CitizenDevelopment.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
+using System.Windows.Controls;
 
 namespace CitizenDevelopment.DataAccess
 {
-    public class DataAccess
+    public class DbAccess
     {
         private readonly string connectionString;
 
-        public DataAccess(string connectionString)
+        public DbAccess(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -68,29 +70,26 @@ namespace CitizenDevelopment.DataAccess
         {
             List<DataModel> data = new List<DataModel>();
 
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                conn.Open();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM DataModel", connection);
 
-                using (SQLiteCommand cmd = new SQLiteCommand(conn))
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
                 {
-                    cmd.CommandText = "SELECT * FROM Data";
-                    SQLiteDataAdapter adapter = new SQLiteDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    foreach (DataRow row in dt.Rows)
+                    data.Add(new DataModel()
                     {
-                        data.Add(new DataModel()
-                        {
-                            Id = (int)row["Id"],
-                            ApplicationName = (string)row["ApplicationName"],
-                            UserName = (string)row["UserName"],
-                            Comment = (string)row["Comment"]
-                        });
-                    }
+                        Id = Convert.ToInt32(row["Id"]),
+                        ApplicationName = (string)row["ApplicationName"],
+                        UserName = (string)row["UserName"],
+                        Comment = (string)row["Comment"]
+                    });
                 }
+
             }
+
 
             return data;
         }

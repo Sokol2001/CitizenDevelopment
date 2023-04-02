@@ -1,29 +1,31 @@
-﻿using System.Data;
-using System.Data.SQLite;
+﻿using CitizenDevelopment.ViewModel;
 using System.Windows;
 
 namespace CitizenDevelopment.View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainWindowViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = new MainWindowViewModel();
+            DataContext = viewModel;
+        }
 
-            string connectionString = "Data Source=C:\\Users\\Oleksii\\source\\repos\\CitizenDevelopment\\database.db";
+        private void btnGet_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.GetData();
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                SQLiteDataAdapter adapter = new SQLiteDataAdapter("SELECT * FROM DataModel", connection);
+            myDataGrid.ItemsSource = viewModel.DataModels;
+        }
 
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-
-                myDataGrid.ItemsSource = dataTable.DefaultView;
-            }
+        private void btnInsert_Click(object sender, RoutedEventArgs e)
+        {
+            InsertData insertData = new InsertData();
+            insertData.Show();
+            Close();
         }
     }
 }

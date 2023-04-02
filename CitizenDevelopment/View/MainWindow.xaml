@@ -41,11 +41,11 @@
             <Button x:Name="btnGet" Content="Get" Width="75" Margin="5"
                     Background="{StaticResource ColorSecondary}" 
                     Foreground="{StaticResource ColorTertiary}"
-                    BorderBrush="{StaticResource ColorPrimary}" BorderThickness="2"/>
+                    BorderBrush="{StaticResource ColorPrimary}" BorderThickness="2" Click="btnGet_Click"/>
             <Button x:Name="btnInsert" Content="Insert" Width="75" Margin="5"
                     Background="{StaticResource ColorSecondary}" 
                     Foreground="{StaticResource ColorTertiary}"
-                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2"/>
+                    BorderBrush="{StaticResource ColorAccent}" BorderThickness="2" Click="btnInsert_Click"/>
             <Button x:Name="btnUpdate" Content="Update" Width="75" Margin="5"
                     Background="{StaticResource ColorSecondary}" 
                     Foreground="{StaticResource ColorTertiary}"

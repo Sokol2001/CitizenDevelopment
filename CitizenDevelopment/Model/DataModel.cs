@@ -12,17 +12,5 @@ namespace CitizenDevelopment.Model
         public string ApplicationName { get; set; }
         public string UserName { get; set; }
         public string Comment { get; set; }
-
-        /*private readonly List<DataModel> _hotels;
-
-        public DataModel()
-        {
-            _hotels = new List<DataModel>();
-        }
-
-        public IEnumerable<DataModel> GetHotels()
-        {
-            return _hotels;
-        }*/
     }
 }
