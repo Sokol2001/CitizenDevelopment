@@ -16,6 +16,8 @@ namespace CitizenDevelopment.View
         {
             InitializeComponent();
             viewModel = new InsertDataViewModel();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

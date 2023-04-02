@@ -1,5 +1,7 @@
 ﻿using CitizenDevelopment.ViewModel;
+using System;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace CitizenDevelopment.View
 {
@@ -12,6 +14,16 @@ namespace CitizenDevelopment.View
             InitializeComponent();
             viewModel = new MainWindowViewModel();
             DataContext = viewModel;
+
+            Loaded += MainWindow_Loaded;
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(5));
+            this.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
         private void btnGet_Click(object sender, RoutedEventArgs e)

@@ -25,6 +25,8 @@ namespace CitizenDevelopment.View
         public UpdateData()
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

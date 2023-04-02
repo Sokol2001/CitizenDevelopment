@@ -2,7 +2,9 @@
 using CitizenDevelopment.Model;
 using System;
 using System.ComponentModel;
+using System.Configuration;
 using System.Windows;
+using MessageBox = CitizenDevelopment.View.MessageBox;
 
 namespace CitizenDevelopment.ViewModel
 {
@@ -13,7 +15,8 @@ namespace CitizenDevelopment.ViewModel
 
         public InsertDataViewModel()
         {
-            string connectionString = @"Data Source=C:\Users\Oleksii\source\repos\CitizenDevelopment\database.db";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
             _dbAccess = new DbAccess(connectionString);
             _dataModel = new DataModel();
         }
@@ -30,14 +33,16 @@ namespace CitizenDevelopment.ViewModel
 
         public void InsertData()
         {
+            var ownerWindow = Application.Current.MainWindow;
+            
             try
             {
                 _dbAccess.InsertData(DataModel);
-                MessageBox.Show("Data saved successfully!");
+                MessageBox.Show("Data saved successfully!", ownerWindow);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saving data: {ex.Message}");
+                MessageBox.Show($"Error saving data: {ex.Message}", ownerWindow);
             }
         }
 

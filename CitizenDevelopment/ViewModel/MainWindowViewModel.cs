@@ -1,9 +1,12 @@
 ﻿using CitizenDevelopment.DataAccess;
 using CitizenDevelopment.Model;
+using CitizenDevelopment.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Windows;
+using MessageBox = CitizenDevelopment.View.MessageBox;
 
 namespace CitizenDevelopment.ViewModel
 {
@@ -14,7 +17,7 @@ namespace CitizenDevelopment.ViewModel
 
         public MainWindowViewModel()
         {
-            string connectionString = @"Data Source=C:\Users\Oleksii\source\repos\CitizenDevelopment\database.db";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             _dbAccess = new DbAccess(connectionString);
         }
@@ -31,14 +34,16 @@ namespace CitizenDevelopment.ViewModel
 
         public void GetData()
         {
+            var ownerWindow = Application.Current.MainWindow;
+
             try
             {
                 dataModels = _dbAccess.GetData();
-                MessageBox.Show("Data loaded successfully!");
+                MessageBox.Show("Data loaded successfully!", ownerWindow);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error retrieving data: {ex.Message}");
+                MessageBox.Show($"Error retrieving data: {ex.Message}", ownerWindow);
             }
         }
 

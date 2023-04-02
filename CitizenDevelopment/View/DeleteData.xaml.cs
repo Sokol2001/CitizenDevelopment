@@ -22,6 +22,8 @@ namespace CitizenDevelopment.View
         public DeleteData()
         {
             InitializeComponent();
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void Button_Cancel_Click(object sender, RoutedEventArgs e)

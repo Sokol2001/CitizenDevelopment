@@ -2,7 +2,9 @@
 using CitizenDevelopment.Model;
 using System;
 using System.ComponentModel;
+using System.Configuration;
 using System.Windows;
+using MessageBox = CitizenDevelopment.View.MessageBox;
 
 namespace CitizenDevelopment.ViewModel
 {
@@ -14,7 +16,8 @@ namespace CitizenDevelopment.ViewModel
 
         public UpdateDataViewModel(int id)
         {
-            string connectionString = @"Data Source=C:\Users\Oleksii\source\repos\CitizenDevelopment\database.db";
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
             _dbAccess = new DbAccess(connectionString);
             _dataModel = _dbAccess.GetDataById(id);
             _id = id;
@@ -32,29 +35,40 @@ namespace CitizenDevelopment.ViewModel
 
         public bool GetData()
         {
+            var ownerWindow = Application.Current.MainWindow;
+
             try
             {
                 DataModel = _dbAccess.GetDataById(_id);
-                MessageBox.Show("Data geted successfully!");
-                return true;
+
+                if(DataModel != null)
+                {
+                    MessageBox.Show("Data geted successfully!", ownerWindow);
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error retrieving data: {ex.Message}");
+                MessageBox.Show($"Error retrieving data: {ex.Message}", ownerWindow);
                 return false;
             }
+
+            MessageBox.Show($"Unable to find item for this Id", ownerWindow);
+            return false;
         }
 
         public void UpdateData()
         {
+            var ownerWindow = Application.Current.MainWindow;
+
             try
             {
                 _dbAccess.UpdateData(DataModel);
-                MessageBox.Show("Data updated successfully!");
+                MessageBox.Show("Data updated successfully!", ownerWindow);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error updating data: {ex.Message}");
+                MessageBox.Show($"Error updating data: {ex.Message}", ownerWindow);
             }
         }
 
