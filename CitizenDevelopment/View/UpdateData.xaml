@@ -35,8 +35,8 @@
 
         </Grid>
 
-        <Button Grid.Row="1" Margin="10" Width="100" x:Name="findDataButton" Content="Find data" Command="{Binding FindCommand}" Foreground="#f8f8f2" Background="#bd93f9" Click="findDataButton_Click" />
-        <Button Grid.Row="1" Margin="10" Width="100" x:Name="saveButton" Content="Save" Command="{Binding SaveCommand}" Foreground="#f8f8f2" Background="#bd93f9" Visibility="Hidden" Click="saveButton_Click"/>
-        <Button Grid.Row="1" Margin="10" Width="100" Content="Cancel" Command="{Binding CancelCommand}" Foreground="#f8f8f2" Background="#ff5555" HorizontalAlignment="Right" Click="Button_Cancel_Click" />
+        <Button Grid.Row="1" Margin="10" Width="100" x:Name="findDataButton" Content="Find data" Foreground="#f8f8f2" Background="#bd93f9" Click="findDataButton_Click" />
+        <Button Grid.Row="1" Margin="10" Width="100" x:Name="saveButton" Content="Save" Foreground="#f8f8f2" Background="#bd93f9" Visibility="Hidden" Click="saveButton_Click"/>
+        <Button Grid.Row="1" Margin="10" Width="100" Content="Cancel" Foreground="#f8f8f2" Background="#ff5555" HorizontalAlignment="Right" Click="Button_Cancel_Click" />
     </Grid>
 </Window>
