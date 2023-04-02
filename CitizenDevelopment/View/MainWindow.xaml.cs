@@ -1,10 +1,6 @@
-﻿using CitizenDevelopment.Model;
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SQLite;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace CitizenDevelopment.View
 {
